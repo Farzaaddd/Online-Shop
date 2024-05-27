@@ -1,0 +1,16 @@
+.container {
+  text-align: center;
+  padding: 10px;
+  min-height: 1000px;
+}
+
+.customButton button {
+  margin-top: 50px;
+  color: #fff;
+  background-color: #fe5d42;
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
