@@ -4,8 +4,8 @@ const categories = [
   { id: 3, type: "Jewelery" },
   { id: 4, type: "Men's Clothing" },
   { id: 5, type: "Women's Clothing" },
-  { id: 6, type: "jewerrr" },
-  { id: 7, type: "Farzad" },
+  // { id: 6, type: "jewerrr" },
+  // { id: 7, type: "Farzad" },
 ];
 
 export { categories };

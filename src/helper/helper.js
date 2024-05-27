@@ -28,35 +28,16 @@ const createQueryObject = (currentQuery, newQuery) => {
       const { search, ...rest } = currentQuery;
       return rest;
 
-    case "jewerrr":
-      newQuery.category = "jewelery";
-      return newQuery;
+    // case "jewerrr":
+    //   newQuery.category = "jewelery";
+    //   return newQuery;
 
-    case "farzad":
-      newQuery.category = "electronics";
-      return newQuery;
-    default:
-      return { ...currentQuery, ...newQuery };
+    // case "farzad":
+    //   newQuery.category = "electronics";
+    //   return newQuery;
+    // default:
+    //   return { ...currentQuery, ...newQuery };
   }
-  // if (newQuery.category == "all") {
-  //   const { category, ...rest } = currentQuery;
-  //   return rest;
-  // }
-
-  // if (newQuery.search == "") {
-  //   const { search, ...rest } = currentQuery;
-  //   return rest;
-  // }
-
-  // if (newQuery.category == "jewerrr") {
-  //   newQuery.category = "jewelery";
-  //   return newQuery;
-  // }
-
-  // if (newQuery.category == "farzad") {
-  //   newQuery.category = "electronics";
-  //   return newQuery;
-  // }
 
   return { ...currentQuery, ...newQuery };
 };
