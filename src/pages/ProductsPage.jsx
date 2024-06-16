@@ -3,7 +3,8 @@ import { useSearchParams } from "react-router-dom";
 
 import Card from "../components/Card";
 import Loader from "../components/Loader";
-import { useProducts } from "../context/ProductContext";
+import { fetchData } from "../features/products/productSlice";
+import {useSelector, useDispatch} from "react-redux"
 
 import { filterProducts, getInitialQuery, searchProducts } from "../helper/helper";
 import styles from "./ProductsPage.module.css"
@@ -11,13 +12,19 @@ import SearchBox from "../components/SearchBox";
 import SideBar from "../components/SideBar";
 
 function ProductsPage() {
-  const products = useProducts()
+
+  const {products, loading} = useSelector(state => state.product);
+  const dispatch = useDispatch();
 
   const [displayed, setDisplayed] = useState([]);
   const [query, setQuery] = useState({});
   const [search, setSearch] = useState("");
 
   const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [])
 
   useEffect(() => {
     setDisplayed(products);
@@ -38,7 +45,7 @@ function ProductsPage() {
 
       <div className={styles.container}>
       <div className={styles.products}>
-        {!displayed.length && <Loader/>}  {displayed.map(product => <Card key={product.id} data={product}/> )}
+        {loading && <Loader/>}  {displayed.map(product => <Card key={product.id} data={product}/> )}
       </div>
 
       <SideBar query={query} setQuery={setQuery}/>

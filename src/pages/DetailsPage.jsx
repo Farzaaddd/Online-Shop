@@ -3,13 +3,21 @@ import {SiOpenproject} from "react-icons/si";
 import {IoMdPricetag} from "react-icons/io";
 import {FaArrowLeft} from "react-icons/fa";
 
-import { useProductDetails } from "../context/ProductContext";
 import Loader from "../components/Loader"
 import styles from "./DetailsPage.module.css"
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchData } from "../features/products/productSlice";
 
 function DetailsPage() {
   const { id } = useParams();
-  const productDetails = useProductDetails(id)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [])
+
+  const productDetails = useSelector(store => store.product.products.find(i => i.id == +id))
 
   if(!productDetails) return <Loader/>
   return (
