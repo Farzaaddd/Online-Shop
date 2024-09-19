@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {PiShoppingCartSimpleBold} from "react-icons/pi"
+
 import styles from "./Layout.module.css"
 
 function Layout({children}) {
